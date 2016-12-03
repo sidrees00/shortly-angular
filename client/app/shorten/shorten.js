@@ -3,7 +3,7 @@ angular.module('shortly.shorten', [])
 .controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
   $scope.submitted = false;
-  $scope.link = {};
+  $scope.link = '';
 
   $scope.validate = function(link) {
     //validate
@@ -16,10 +16,13 @@ angular.module('shortly.shorten', [])
   //
 
   $scope.addLink = function(link) {
+    var prepLink = {url: link};
     console.log('submitted link', link);
-    $scope.link = link;
     $scope.submitted = true;
-    Links.addOne(link);
+    Links.addOne(prepLink).then(function(link) {
+      console.log(link, link.data, '*************');
+      $scope.newLink = link.data;
+    });
     $scope.link = '';
   };
   // $scope.renderSubmitted = 

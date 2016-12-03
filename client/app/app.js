@@ -32,11 +32,11 @@ angular.module('shortly', [
       // double check docs on this///////////////////////////////////////////////
       authenticate: true
       
-    })
-    .otherwise({
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
     });
+    // .otherwise({
+    //   templateUrl: 'app/links/links.html',
+    //   controller: 'LinksController'
+    // });
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

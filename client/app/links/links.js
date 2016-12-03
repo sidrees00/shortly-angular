@@ -7,6 +7,7 @@ links.controller('LinksController', function ($scope, Links) {
   $scope.data = {};
   Links.getAll().then(function(links) {
     $scope.data.links = links;
-    console.log('link', $scope.data);
+    // console.log('link', $scope.data);
   });
+
 });
