@@ -1,8 +1,15 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <ul >
-    <li ng-repeat='link in data.links'>
-      {{link}}
+    <li class='link' ng-repeat='link in data.links'>
+      <img src='assets/redirect_icon.png'/>
+        <div class='info'>
+          <div class='visits'><span class='count'>{{data.links.visits}}</span>Visits</div>
+          <div class='title'>{{data.links.title}}</div>
+          <div class='original'>{{data.links.url}}</div>
+          <a href='{{baseUrl}}/{{code}}'>{{data.links.baseUrl}}/{{data.links.code}}</a>
+        </div>
     </li>
   </ul>
 </div>
+

@@ -15,6 +15,9 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
+    .when('/signout', {
+      controller: 'AuthController'
+    })
     // Your code here
     .when('/links', {
       templateUrl: 'app/links/links.html',
@@ -30,10 +33,11 @@ angular.module('shortly', [
       authenticate: true
       
     })
-    .when('/*', {
+    .otherwise({
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
     });
+
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
   $httpProvider.interceptors.push('AttachTokens');
@@ -66,6 +70,9 @@ angular.module('shortly', [
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
       $location.path('/signin');
+    }
+    if (next.$$route.originalPath === '/signout') {
+      Auth.signout();
     }
   });
 });

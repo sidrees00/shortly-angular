@@ -1,10 +1,24 @@
 <div id='container' ng-controller='ShortenController'>
 
 <!-- Your code here -->
-
-<input ng-model='link'/>
-<button ng-click='addLink(link)'>Submit</button>
+<form>
+  <input ng-keyup='validate(link)' ng-model='link'/>
+  <button ng-click='addLink(link)'>Submit</button>
 <!-- some kind of form input field to submit new links ? -->
+</form>
+
+  <ul>
+    <li class='link' ng-if='submitted'>
+      <img src='assets/redirect_icon.png'/>
+        <div class='info'>
+          <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+          <div class='title'>{{link.title}}</div>
+          <div class='original'>{{link.url}}</div>
+          <a href='{{baseUrl}}/{{code}}'>{{link.baseUrl}}/{{link.code}}</a>
+        </div>
+    </li>
+  </ul>
+
 </div>
 
 

@@ -52,6 +52,9 @@ h1 {
   clear: both;
   margin-top: 10px;
 }
+#container ul li {
+  list-style: none;
+}
 
 .link {
   clear: both;
