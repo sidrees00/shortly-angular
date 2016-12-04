@@ -48,12 +48,16 @@ h1 {
   background-color: #ccc;
 }
 
+
 #container {
   clear: both;
   margin-top: 10px;
 }
 #container ul li {
   list-style: none;
+}
+#container p {
+  padding:15px;
 }
 
 .link {
@@ -115,7 +119,6 @@ input[type=url] {
 input[type=url]:focus {
   outline: none;
 }
-
 
 .error {
   border: red solid 4px;

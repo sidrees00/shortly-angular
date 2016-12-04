@@ -1,12 +1,13 @@
 <div id='container' ng-controller='ShortenController'>
 
 <!-- Your code here -->
-<form>
-  <input ng-keyup='validate(link)' ng-model='link'/>
-  <button ng-click='addLink(link)'>Submit</button>
-<!-- some kind of form input field to submit new links ? -->
+<div ng-class="{ 'has-error' : linkForm.url.$invalid && !linkForm.url.$pristine }" novalidate>
+<form name='linkForm' novalidate>
+  <input type="url" name='url' ng-model='link'>
+  <button ng-click='addLink(link)' ng-disabled="linkForm.$invalid">Submit</button>
 </form>
-
+<p class='validate' ng-show="linkForm.url.$invalid && !linkForm.url.$pristine">Please enter a valid link.</p>
+</div>
   <ul>
     <li class='link' ng-if='submitted'>
       <img src='assets/redirect_icon.png'/>
